@@ -1,0 +1,102 @@
+@page "/ApplicantDemo"
+@using BlazorSemanticKernel.Services
+@inject SemanticFunctions SemanticFunctions
+@inject IJSRuntime JSRuntime
+
+@* <h1 style="color:white">Function Calling</h1> *@
+
+<div class="container">
+    <h1>Applicant Demo</h1>
+    <div class="chat-container">
+        <div class="chat-messages" @ref="chatMessagesElement">
+            @foreach (var message in chatHistory.Where(m => m.Role != AuthorRole.System && m.Role != AuthorRole.Tool))
+            {
+                <div class="message @(message.Role == AuthorRole.User ? "user" : "assistant")">
+                    <div class="message-content">@((MarkupString)FormatMessage(message.Content))</div>
+                </div>
+            }
+        </div>
+        @if(isProcessing){
+            <div class="processing-message">Thinking...</div>
+        }
+        <div class="chat-input">
+            <input @bind="userInput" @bind:event="oninput" @onkeyup="HandleKeyPress" placeholder="Type a message..." />
+            <button @onclick="SendMessage" disabled="@(string.IsNullOrWhiteSpace(userInput) || isProcessing)">Send</button>
+        </div>
+    </div>
+</div>
+
+
+
+@code {
+    private string userInput = string.Empty;
+    private ChatHistory chatHistory = new();
+    private ElementReference chatMessagesElement;
+    private bool isProcessing = false;
+
+    private async Task SendMessage()
+    {
+        if (string.IsNullOrWhiteSpace(userInput) || isProcessing) return;
+
+        isProcessing = true;
+        chatHistory.AddUserMessage(userInput);
+        string currentInput = userInput;
+        userInput = string.Empty;
+
+        StateHasChanged();
+
+        try
+        {
+            var response = await SemanticFunctions.CheckOnApplicantsAsync(chatHistory);
+            if (!string.IsNullOrWhiteSpace(response))
+            {
+                ProcessAndAddAssistantResponse(response);
+            }
+
+            // Clean up empty or null messages from the chat history
+            CleanupChatHistory();
+        }
+        catch (Exception ex)
+        {
+            chatHistory.AddAssistantMessage($"I apologize, but I encountered an error: {ex.Message}");
+        }
+
+        isProcessing = false;
+        StateHasChanged();
+    }
+
+    private void CleanupChatHistory()
+    {
+        for (int i = chatHistory.Count - 1; i >= 0; i--)
+        {
+            var message = chatHistory[i];
+            if (message.Role == AuthorRole.Assistant &&
+                (string.IsNullOrWhiteSpace(message.Content)|| string.IsNullOrEmpty(message.Content) || message.Content == "\"\""))
+            {
+                chatHistory.RemoveAt(i);
+            }
+        }
+    }
+
+    private void ProcessAndAddAssistantResponse(string response)
+    {
+        var parts = response.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+        string combinedResponse = string.Join("\n", parts).Trim();
+        
+        if (!string.IsNullOrWhiteSpace(combinedResponse))
+        {
+            chatHistory.AddAssistantMessage(combinedResponse);
+        }
+    }
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter") await SendMessage();
+    }
+
+    private string FormatMessage(string content)
+    {
+        // Replace newlines with <br> tags for proper HTML rendering
+        return content.Replace("\n", "<br>");
+    }
+}

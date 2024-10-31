@@ -1,0 +1,189 @@
+﻿@page "/documentAnalysis"
+@using BlazorSemanticKernel.Services
+@using System.Text.Json
+@inject SemanticFunctions SemanticFunctions
+
+<PageTitle>Document Analysis</PageTitle>
+
+<div class="container">
+    <h1>Document Analysis</h1>
+    <div class="document-routing-demo">
+        <h2>Intelligent Document Routing Assistant</h2>
+        <div class="upload-section">
+            <button @onclick="LoadSampleDocument">Load Sample</button>
+        </div>
+        <textarea @bind="documentContent" placeholder="Paste your document or email content here, or upload a file above" rows="10"></textarea>
+        <div class="routing-options">
+            <button @onclick="AnalyzeAndRouteDocument" disabled="@isAnalyzing">
+                @(isAnalyzing ? "Analyzing..." : "Analyze and Route")
+            </button>
+            <div class="routing-destinations">
+                <div class="@GetRoutingClass("Accounting")">Accounting</div>
+                <div class="@GetRoutingClass("Legal")">Legal</div>
+                <div class="@GetRoutingClass("Human Resources")">Human Resources</div>
+                <div class="@GetRoutingClass("IT Support")">IT Support</div>
+                <div class="@GetRoutingClass("Sales")">Sales</div>
+                <div class="@GetRoutingClass("Customer Service")">Customer Service</div>
+                <div class="@GetRoutingClass("Executive Office")">Executive Office</div>
+            </div>
+        </div>
+        <div class="routing-response">
+            <h3>AI Assistant Response:</h3>
+            <pre>@routingResponse</pre>
+        </div>
+    </div>
+</div>
+
+<style>
+    .routing-destinations {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .routing-destination {
+        padding: 8px 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+
+    .routed {
+        color: white;
+        background-color: #28a745;
+        border-color: #28a745;
+        font-weight: bold;
+    }
+
+    .unrouted {
+        color: #333;
+        background-color: #f8f9fa;
+    }
+</style>
+
+@code {
+    private string documentContent = string.Empty;
+    private string routingResponse = string.Empty;
+    private string routedDepartment = string.Empty;
+    private bool isAnalyzing = false;
+
+    private string GetRoutingClass(string department)
+    {
+        var baseClass = "routing-destination";
+        return department.Equals(routedDepartment, StringComparison.OrdinalIgnoreCase) 
+            ? $"{baseClass} routed" 
+            : $"{baseClass} unrouted";
+    }
+
+    private async Task AnalyzeAndRouteDocument()
+    {
+        if (string.IsNullOrWhiteSpace(documentContent)) return;
+        
+        isAnalyzing = true;
+        routedDepartment = string.Empty;
+        routingResponse = "Analyzing document...";
+        StateHasChanged();
+
+        try
+        {
+            var chatHistory = new ChatHistory();
+            //We'll parse out the department from the LLM's response
+            chatHistory.AddUserMessage($"Analyze this document and tell me which department it should be routed to. After your analysis, simply provide the department name as a single word response: {documentContent}");
+            
+            var result = await SemanticFunctions.AnalyzeDocument(chatHistory);
+            
+            if (!string.IsNullOrEmpty(result))
+            {
+                // Extract the department name from the response
+                string department = ExtractDepartment(result);
+                if (!string.IsNullOrEmpty(department))
+                {
+                    routedDepartment = department;
+                    routingResponse = $"Document has been analyzed and routed to {department}.\n\nAnalysis:\n{result}";
+                }
+                else
+                {
+                    routingResponse = "Could not determine appropriate department from analysis.";
+                }
+            }
+            else
+            {
+                routingResponse = "Unable to analyze the document.";
+            }
+        }
+        catch (Exception ex)
+        {
+            routingResponse = $"Error analyzing document: {ex.Message}";
+        }
+        finally
+        {
+            isAnalyzing = false;
+            StateHasChanged();
+        }
+    }
+
+    private string ExtractDepartment(string response)
+    {
+        // List of valid departments
+        var validDepartments = new[]
+        {
+            "Accounting", "Legal", "Human Resources", "IT Support", 
+            "Sales", "Customer Service", "Executive Office"
+        };
+
+        // Look for any valid department name in the response
+        foreach (var dept in validDepartments)
+        {
+            if (response.Contains(dept, StringComparison.OrdinalIgnoreCase))
+            {
+                return dept;
+            }
+        }
+
+        return string.Empty;
+    }
+
+    private class RoutingResult
+    {
+        public bool success { get; set; }
+        public string message { get; set; } = string.Empty;
+        public string routedTo { get; set; } = string.Empty;
+    }
+
+    private void LoadSampleDocument()
+    {
+        documentContent = @"Subject: Urgent: Database Connection Issues Affecting Production
+
+        Hello IT Support Team,
+
+        We are experiencing critical issues with our production database connections. This is severely impacting our ability to process customer orders.
+
+        Problem Details:
+        - Error Message: ""Connection timeout: Unable to establish connection to the database server""
+        - Affected Systems: Order Processing System, Inventory Management System
+        - Time of First Occurrence: Today at 09:15 AM EST
+        - Frequency: Consistent, happening every 2-3 minutes
+
+        Steps Taken So Far:
+        1. Restarted the application servers
+        2. Checked network connectivity (appears to be stable)
+        3. Verified database server is running
+
+        Impact:
+        This issue is causing significant delays in order processing and is affecting our ability to serve customers. We estimate that we're losing approximately $10,000 in sales per hour due to this problem.
+
+        Please treat this as a high-priority issue. We need assistance in identifying the root cause and implementing a solution as quickly as possible.
+
+        If you need any additional information or access to our systems, please let me know immediately.
+
+        Thank you for your prompt attention to this matter.
+
+        Regards,
+        Alex Johnson
+        Operations Manager
+        E-commerce Division";
+
+        StateHasChanged();
+    }
+}

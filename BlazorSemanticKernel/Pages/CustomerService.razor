@@ -1,0 +1,67 @@
+@page "/customerservice"
+@using Microsoft.SemanticKernel.ChatCompletion
+@using BlazorSemanticKernel.Services
+@inject SemanticFunctions SemanticFunctions
+
+@* <h1 style="color:white">AI-Enhanced Customer Service Assistant</h1> *@
+
+<div class="container">
+    <h1>AI-Enhanced Customer Service Assistant</h1>
+    <div class="chat-container">
+        <div class="chat-messages" @ref="chatMessagesElement">
+            @foreach (var message in chatHistory.Where(m => m.Role != AuthorRole.System && m.Role != AuthorRole.Tool))
+            {
+                <div class="message @(message.Role == AuthorRole.User ? "user" : "assistant")">
+                    <div class="message-content">@((MarkupString)FormatMessage(message.Content))</div>
+                </div>
+            }
+        </div>
+        <div class="chat-input">
+            <input @bind="userInput" @bind:event="oninput" @onkeyup="HandleKeyPress" placeholder="Type your question here..." />
+            <button @onclick="SendMessage" disabled="@(string.IsNullOrWhiteSpace(userInput))">Send</button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string userInput = string.Empty;
+    private ChatHistory chatHistory = new ChatHistory();
+    private ElementReference chatMessagesElement;
+
+    protected override async Task OnInitializedAsync()
+    {
+        chatHistory.AddAssistantMessage("Hello! My name is Chatty, an AI-powered SFBLI customer service bot. How can I help you today?");
+    }
+
+    private async Task SendMessage()
+    {
+        if (string.IsNullOrWhiteSpace(userInput)) return;
+
+        chatHistory.AddUserMessage(userInput);
+        string currentInput = userInput;
+        userInput = string.Empty;
+
+        StateHasChanged();
+
+        var response = await SemanticFunctions.ProcessEnhancedCustomerServiceQueryAsync(chatHistory);
+        chatHistory.AddAssistantMessage(response);
+
+        StateHasChanged();
+        await ScrollToBottom();
+    }
+
+    private async Task HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter") await SendMessage();
+    }
+
+    private string FormatMessage(string content)
+    {
+        return content.Replace("\n", "<br>");
+    }
+
+    private async Task ScrollToBottom()
+    {
+        //await JSRuntime.InvokeVoidAsync("scrollToBottom", chatMessagesElement);
+    }
+}
