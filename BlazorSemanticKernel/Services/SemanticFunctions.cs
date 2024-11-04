@@ -24,7 +24,7 @@ public class SemanticFunctions
     // This is the basic function calling demo endpoint
     public async Task<string> GetChatResponseAsync(ChatHistory chat)
     {
-        var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings 
+        var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings
         {
             ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions,
             Temperature = 0.2,
@@ -38,7 +38,7 @@ public class SemanticFunctions
                     The assistant is brief and only replies with the least amount of words necessary.
                     If the prompt was simply a command, the assistant will ask for clarification ONLY if it is confused, otherwise the assisstant replies with 'Done.'"
         };
-        
+
 
         ChatMessageContent result = await _chatCompletionService.GetChatMessageContentAsync(
             chatHistory: chat,
@@ -46,13 +46,13 @@ public class SemanticFunctions
             kernel: _kernel);
 
         return result.Content ?? "Whoopsie, something went horribly wrong.";
-        
+
     }
 
     // This is the endpoint for the document analysis demo
     public async Task<string> AnalyzeDocument(ChatHistory chat)
     {
-        var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings 
+        var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings
         {
             ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions,
             Temperature = 0.2,
@@ -77,7 +77,7 @@ public class SemanticFunctions
     }
 
     public async Task<string> CheckOnApplicantsAsync(ChatHistory chat){
-        var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings 
+        var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings
         {
             ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions,
             Temperature = 0.2,
@@ -105,7 +105,7 @@ public class SemanticFunctions
     //This is the endpoint for the customer service chat bot demo
     public async Task<string> ProcessEnhancedCustomerServiceQueryAsync(ChatHistory chatHistory)
     {
-        var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings 
+        var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings
         {
             ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions,
             Temperature = 0.3,
@@ -144,7 +144,7 @@ public class SemanticFunctions
 //                     If the prompt was simply a command, the assistant will ask for clarification ONLY if it is confused, otherwise the assisstant replies with 'Done.'"
 //             );
 // #pragma warning disable SKEXP0070 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
-//             var settings = new OllamaPromptExecutionSettings 
+//             var settings = new OllamaPromptExecutionSettings
 //             {
 //                 TopK = 10,
 //                 TopP = 8,
