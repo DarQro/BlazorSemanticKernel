@@ -32,25 +32,6 @@ builder.Services.AddSingleton(sp =>
     return kernel;
 });
 
-// // Configure and build the kernel
-// builder.Services.AddSingleton(sp =>
-// {
-//     var kernelBuilder = Kernel.CreateBuilder();
-
-// #pragma warning disable SKEXP0070 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
-//     kernelBuilder.AddOllamaChatCompletion(modelId:"llama3.1:latest", endpoint: new Uri("http://127.0.0.1:11434/v1"));
-// #pragma warning restore SKEXP0070 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
-
-//     var kernel = kernelBuilder.Build();
-
-//     // Add custom plugins
-//     kernel.Plugins.AddFromType<CustomPlugin>();
-//     kernel.Plugins.AddFromType<RoutingPlugin>();
-//     kernel.Plugins.AddFromType<CustomerServicePlugin>();
-
-//     return kernel;
-// });
-
 builder.Services.AddSingleton<IChatCompletionService>(sp =>
 {
     var kernel = sp.GetRequiredService<Kernel>();

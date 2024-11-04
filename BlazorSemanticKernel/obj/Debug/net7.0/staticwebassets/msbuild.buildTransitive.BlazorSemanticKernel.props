@@ -1,3 +1,3 @@
 ﻿<Project>
-  <Import Project="../buildMultiTargeting/BlazorSemanticKernel.props" />
+  <Import Project="..\buildMultiTargeting\BlazorSemanticKernel.props" />
 </Project>

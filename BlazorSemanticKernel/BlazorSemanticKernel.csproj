@@ -1,14 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SemanticKernel" Version="1.25.0" />
+    <PackageReference Include="Microsoft.SemanticKernel" Version="1.26.0" />
     <PackageReference Include="Microsoft.SemanticKernel.Connectors.Ollama" Version="1.25.0-alpha" />
+    <PackageReference Include="Microsoft.SemanticKernel.Plugins.MsGraph" Version="1.26.0-alpha" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="simpleFeedReader" Version="1.0.9" />
   </ItemGroup>
