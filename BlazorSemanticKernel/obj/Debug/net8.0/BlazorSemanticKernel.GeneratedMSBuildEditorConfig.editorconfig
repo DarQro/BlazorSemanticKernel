@@ -9,59 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BlazorSemanticKernel
 build_property.RootNamespace = BlazorSemanticKernel
-build_property.ProjectDir = C:\Users\C05329\Source\Repos\BlazorSemanticKernel\BlazorSemanticKernel\
+build_property.ProjectDir = C:\Users\C05329\source\repos\BlazorSemanticKernel\BlazorSemanticKernel\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\C05329\Source\Repos\BlazorSemanticKernel\BlazorSemanticKernel
+build_property.MSBuildProjectDirectory = C:\Users\C05329\source\repos\BlazorSemanticKernel\BlazorSemanticKernel
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/App.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/ApplicantDemo.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/ApplicantDemo.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXBwbGljYW50RGVtby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/CustomerService.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/CustomerService.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJTZXJ2aWNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/DocumentAnalysis.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/DocumentAnalysis.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG9jdW1lbnRBbmFseXNpcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/FetchData.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/Index.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Shared/SurveyPrompt.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/_Imports.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Shared/MainLayout.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-idoj9o2bcq
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Shared/NavMenu.razor]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-3xt9gdx65c
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/Error.cshtml]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/C05329/Source/Repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/_Host.cshtml]
+[C:/Users/C05329/source/repos/BlazorSemanticKernel/BlazorSemanticKernel/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
