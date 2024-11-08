@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\C05329\\source\\repos\\BlazorSemanticKernel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{33A03395-46C0-4B30-90E0-C902556F23CE}|BlazorSemanticKernel\\BlazorSemanticKernel.csproj|c:\\users\\c05329\\source\\repos\\blazorsemantickernel\\blazorsemantickernel\\blazorsemantickernel.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{33A03395-46C0-4B30-90E0-C902556F23CE}|BlazorSemanticKernel\\BlazorSemanticKernel.csproj|solutionrelative:blazorsemantickernel\\blazorsemantickernel.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{33A03395-46C0-4B30-90E0-C902556F23CE}|BlazorSemanticKernel\\BlazorSemanticKernel.csproj|c:\\users\\c05329\\source\\repos\\blazorsemantickernel\\blazorsemantickernel\\services\\semanticfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{33A03395-46C0-4B30-90E0-C902556F23CE}|BlazorSemanticKernel\\BlazorSemanticKernel.csproj|solutionrelative:blazorsemantickernel\\services\\semanticfunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{33A03395-46C0-4B30-90E0-C902556F23CE}|BlazorSemanticKernel\\BlazorSemanticKernel.csproj|c:\\users\\c05329\\source\\repos\\blazorsemantickernel\\blazorsemantickernel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{33A03395-46C0-4B30-90E0-C902556F23CE}|BlazorSemanticKernel\\BlazorSemanticKernel.csproj|solutionrelative:blazorsemantickernel\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33A03395-46C0-4B30-90E0-C902556F23CE}|BlazorSemanticKernel\\BlazorSemanticKernel.csproj|c:\\users\\c05329\\source\\repos\\blazorsemantickernel\\blazorsemantickernel\\blazorsemantickernel.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{33A03395-46C0-4B30-90E0-C902556F23CE}|BlazorSemanticKernel\\BlazorSemanticKernel.csproj|solutionrelative:blazorsemantickernel\\blazorsemantickernel.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 170,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,39 +34,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BlazorSemanticKernel",
+              "DocumentIndex": 2,
+              "Title": "BlazorSemanticKernel.csproj",
               "DocumentMoniker": "C:\\Users\\C05329\\Source\\Repos\\BlazorSemanticKernel\\BlazorSemanticKernel\\BlazorSemanticKernel.csproj",
               "RelativeDocumentMoniker": "BlazorSemanticKernel\\BlazorSemanticKernel.csproj",
               "ToolTip": "C:\\Users\\C05329\\Source\\Repos\\BlazorSemanticKernel\\BlazorSemanticKernel\\BlazorSemanticKernel.csproj",
               "RelativeToolTip": "BlazorSemanticKernel\\BlazorSemanticKernel.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-04T17:28:05.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-04T17:28:05.307Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "SemanticFunctions.cs",
               "DocumentMoniker": "C:\\Users\\C05329\\source\\repos\\BlazorSemanticKernel\\BlazorSemanticKernel\\Services\\SemanticFunctions.cs",
               "RelativeDocumentMoniker": "BlazorSemanticKernel\\Services\\SemanticFunctions.cs",
               "ToolTip": "C:\\Users\\C05329\\source\\repos\\BlazorSemanticKernel\\BlazorSemanticKernel\\Services\\SemanticFunctions.cs",
               "RelativeToolTip": "BlazorSemanticKernel\\Services\\SemanticFunctions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T17:26:56.168Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\C05329\\source\\repos\\BlazorSemanticKernel\\BlazorSemanticKernel\\Program.cs",
               "RelativeDocumentMoniker": "BlazorSemanticKernel\\Program.cs",
               "ToolTip": "C:\\Users\\C05329\\source\\repos\\BlazorSemanticKernel\\BlazorSemanticKernel\\Program.cs",
               "RelativeToolTip": "BlazorSemanticKernel\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-04T17:21:57.217Z",
               "EditorCaption": ""

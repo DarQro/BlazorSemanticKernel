@@ -18,7 +18,7 @@ builder.Services.AddSingleton(sp =>
 {
     var kernelBuilder = Kernel.CreateBuilder()
         .AddOpenAIChatCompletion(
-            modelId: "llama3.1",
+            modelId: "llama3.1:8b",
             apiKey: null,
             endpoint: new Uri("http://localhost:11434/v1"));
 

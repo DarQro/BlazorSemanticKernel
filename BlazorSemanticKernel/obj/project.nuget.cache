@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "caBu+nDOT0k=",
+  "dgSpecHash": "cS3iw0YfCQk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\C05329\\source\\repos\\BlazorSemanticKernel\\BlazorSemanticKernel\\BlazorSemanticKernel.csproj",
+  "projectFilePath": "C:\\Users\\C05329\\Source\\Repos\\BlazorSemanticKernel\\BlazorSemanticKernel\\BlazorSemanticKernel.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\C05329\\.nuget\\packages\\azure.ai.openai\\2.1.0-beta.1\\azure.ai.openai.2.1.0-beta.1.nupkg.sha512",
     "C:\\Users\\C05329\\.nuget\\packages\\azure.core\\1.43.0\\azure.core.1.43.0.nupkg.sha512",
